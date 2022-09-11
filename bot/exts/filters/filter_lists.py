@@ -296,7 +296,7 @@ class FilterLists(Cog):
     @command(name="filter_report")
     async def force_send_weekly_report(self, ctx: Context) -> None:
         """Send a list of autobans added in the last 7 days to #mod-meta."""
-        await self.send_weekly_autoban_report()
+        await self.send_weekly_autoban_report(ctx.channel)
 
     @tasks.loop(time=datetime.time(hour=18))
     async def weekly_autoban_report_task(self) -> None:
